@@ -5,6 +5,7 @@
 44 5 78 -> 78
 22 3 9 -> 22
 */
+Console.Clear();
 Console.WriteLine("Введите число a");
 int a = int.Parse(Console.ReadLine());
 
