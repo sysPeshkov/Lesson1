@@ -47,8 +47,6 @@ int[] ReverseArray(int[] array){
 return resultArray;
 }
 
-
-
 int[] ReverseParseToArray(int num){
     int[] array = new int[5];
     for (int i = 0; i < 5; i++) {
@@ -61,7 +59,6 @@ Console.WriteLine(" ");
 //Console.WriteLine(array);
 return array;
 }
-
 
 
 int Input() {
