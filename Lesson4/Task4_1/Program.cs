@@ -14,7 +14,6 @@ int[] ReverseParseToArray(string num){
     for (int i = 0; i < num.Length; i++) {
     array[i] = a%10;
     a = a/10;
-   // Console.Write(array[i]);
 
     }
 Console.WriteLine(" ");

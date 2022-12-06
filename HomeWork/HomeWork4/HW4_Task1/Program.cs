@@ -43,7 +43,7 @@ int InputNumber(string name){
 void Tests(){
 int[] numbers = {2, 3, 4, 5};
 int[] powers = {2, 3, 4, 3};
-int[] expectedResult = {4, 27, 255, 125};
+int[] expectedResult = {4, 27, 256, 125};
 int length = numbers.Length;
 for (int i = 0; i < length; i++)
 {
