@@ -1,13 +1,19 @@
-﻿// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-// 6, 1, 33 -> [6, 1, 33]
+﻿// Задача 32: Напишите программу замена элементов массива: положительные элементы замените на соответствующие отрицательные, и наоборот.
+// [-4, -8, 8, 2] -> [4, 8, -8, -2]
+
 
 Console.Clear();
+Tests();
 
 int a = InputNumber("Введите длину массива ");
 int[] array = new int[a];
 array = FillArray(a);
+
 PrintArray(array);
+
+int[] invertArray = new int[array.Length];
+invertArray = InvertArray(array);
+PrintArray(invertArray);
 
 
 void PrintArray(int[] array){
@@ -21,6 +27,15 @@ for (int i = 0; i < length; i++)
     Console.WriteLine("");
 }
 
+int[] InvertArray(int[] array){
+   
+    for (int i = 0; i < array.Length; i++)
+    {
+    //Console.Write($"Введите элемент массива {i+1}");
+    array[i] = array[i]*-1;
+    }
+    return array;
+}
 
 int[] FillArray(int length){
     int[] resultArray = new int[length];
@@ -46,3 +61,19 @@ int InputNumber(string name){
     return result;
 }
 
+
+// [-4, -8, 8, 2] -> [4, 8, -8, -2]
+void Tests(){
+int[] numbers = {-4, -8, 8, 2};
+int[] expectedResult = {4, 8, -8, -2};
+int length = numbers.Length;
+int[] result = new int[numbers.Length];
+result = InvertArray(numbers);
+for (int i = 0; i < length; i++)
+{
+    if (result[i] != expectedResult[i]) {
+        Console.WriteLine($"Error. For number[{i}] = {numbers[i]}. Expect = {expectedResult[i]}, result =  {result[i]}");
+      
+    }
+}
+}
