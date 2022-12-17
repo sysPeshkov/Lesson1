@@ -1,6 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-namespace Common;
-
+﻿namespace Major;
+public class Class1
+{
     public static class Helper
     {
         public static int InputNumber(string name)
@@ -16,4 +16,18 @@ namespace Common;
             }
             return result;
         }
+        public static void Print2DArray(int[,] array)
+        {
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                   Console.Write($"{array[i,j]}  ");
+                }
+            Console.WriteLine("");
+            }
+        }
+
+
     }
+}
