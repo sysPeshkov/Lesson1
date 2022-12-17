@@ -22,12 +22,37 @@ public class Class1
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                   Console.Write($"{array[i,j]}  ");
+                    Console.Write($"{array[i, j]}  ");
                 }
-            Console.WriteLine("");
+                Console.WriteLine("");
             }
         }
+        public static int[] FillArray(int length)
+        {
+            int[] resultArray = new int[length];
+            for (int i = 0; i < length; i++)
+            {
+                //Console.Write($"Введите элемент массива {i+1}");
+                resultArray[i] = InputNumber($"Введите элемент массива {i}");
+            }
+            return resultArray;
+        }
+
+        public static int[,] Fill2DArray(int m, int n)
+        {
+            int[,] resultArray = new int[m, n];
+
+            for (int i = 0; i < resultArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < resultArray.GetLength(1); j++)
+                {
+                    resultArray[i, j] = InputNumber($"Введите элемент массива {i}, {j}"); ;
+                }
+
+            }
+            return resultArray;
 
 
+        }
     }
 }
