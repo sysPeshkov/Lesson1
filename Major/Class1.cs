@@ -51,8 +51,19 @@ public class Class1
 
             }
             return resultArray;
-
-
         }
+         public static int[,] Generate2DArray(int m, int n)
+        {
+            int[,] resultArray = new int[m, n];
+            Random random = new Random();
+            for (int i = 0; i < resultArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < resultArray.GetLength(1); j++)
+                {
+                    resultArray[i, j] = random.Next(int.MinValue, int.MaxValue) ;
+                }
+
+            }
+            return resultArray;
     }
 }
