@@ -10,6 +10,7 @@ Console.Clear();
 
 int m = InputNumber("Введите количество строк");
 int n = InputNumber("Введите количество столбцов");
-
-int[,] array = Generate2DArray(m, n);
+int min = InputNumber("Введите минимальое число");
+int max = InputNumber("Введите максимальное число");
+int[,] array = Generate2DArray(m, n, min, max);
 Print2DArray(array);
