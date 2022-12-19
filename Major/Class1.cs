@@ -65,5 +65,6 @@ public class Class1
 
             }
             return resultArray;
+        }
     }
 }
