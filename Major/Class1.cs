@@ -66,5 +66,26 @@ public class Class1
             }
             return resultArray;
         }
+
+         public static void FindNumberInArray(int[,] array, int number)
+        {
+            int finded = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (array[i,j] == number){
+                        finded = 1;
+                        break;
+                    }
+                }
+
+            }
+
+            if (finded == 1){
+                        Console.WriteLine($"Элемент {number} найден");
+                    }
+            else {Console.WriteLine($"{number} -> такого числа в массиве нет");}
+        }
     }
 }
