@@ -52,7 +52,7 @@ public class Class1
             }
             return resultArray;
         }
-         public static int[,] Generate2DArray(int m, int n)
+        public static int[,] Generate2DArray(int m, int n)
         {
             int[,] resultArray = new int[m, n];
             Random random = new Random();
@@ -60,21 +60,22 @@ public class Class1
             {
                 for (int j = 0; j < resultArray.GetLength(1); j++)
                 {
-                    resultArray[i, j] = random.Next(int.MinValue, int.MaxValue) ;
+                    resultArray[i, j] = random.Next(int.MinValue, int.MaxValue);
                 }
 
             }
             return resultArray;
         }
 
-         public static void FindNumberInArray(int[,] array, int number)
+        public static void FindNumberInArray(int[,] array, int number)
         {
             int finded = 0;
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    if (array[i,j] == number){
+                    if (array[i, j] == number)
+                    {
                         finded = 1;
                         break;
                     }
@@ -82,10 +83,44 @@ public class Class1
 
             }
 
-            if (finded == 1){
-                        Console.WriteLine($"Элемент {number} найден");
-                    }
-            else {Console.WriteLine($"{number} -> такого числа в массиве нет");}
+            if (finded == 1)
+            {
+                Console.WriteLine($"Элемент {number} найден");
+            }
+            else { Console.WriteLine($"{number} -> такого числа в массиве нет"); }
+        }
+
+        public static double[] GetAverageInColumns(int[,] array)
+        {
+            int[] arrayColumn = new int[array.GetLength(0)];
+            double[] resultArray = new double[array.GetLength(1)];
+
+            for (int i = 0; i < array.GetLength(1); i++) //Проходи по колонкам
+            {
+                for (int j = 0; j < array.GetLength(0); j++) //Проходи по строкам
+                {
+                    arrayColumn[j] = array[j, i];
+                }
+                resultArray[i] = GetAverage(arrayColumn);
+            }
+            return resultArray;
+        }
+
+        public static double GetAverage(int[] array)
+        {
+            double result = 0;
+            int length = array.Length;
+            for (int i = 0; i < length; i++)
+            {
+                result += array[i];
+            }
+            result = result / length;
+            return result;
+        }
+        public static void PrintArray(double[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+                Console.Write($"{array[i]} ");
         }
     }
 }
