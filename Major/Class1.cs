@@ -122,5 +122,11 @@ public class Class1
             for (int i = 0; i < array.Length; i++)
                 Console.Write($"{array[i]} ");
         }
+
+        public static void PrintArrayInt(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+                Console.Write($"{array[i]} ");
+        }
     }
 }
