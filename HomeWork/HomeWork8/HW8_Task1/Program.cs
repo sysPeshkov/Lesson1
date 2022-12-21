@@ -67,17 +67,21 @@ int[,] SortNumberIn2DArrayOnRows(int[,] array)
 
     for (int i = 0; i < numberRows; i++)
     {
-        //начиная со следующего после текущего начинаем проверять какой элемент больше
         for (int j = 0; j < numberColumns; j++)
         {
             //Получаем строку в отдельном массиве
             tepmArray[j] = array[i, j];
-            //Сортируем получившийся массив
-            
-            tepmSortedArray = SortNumberInArray(tepmArray);
             //Записываем отсортированную строку в массив
-            resultArray[i, j] = tepmSortedArray[j];
         }
+                    //Сортируем получившийся массив
+        tepmSortedArray = SortNumberInArray(tepmArray);
+        for (int k = 0; k < numberColumns; k++)
+        {
+            //Записываем отсортированную строку в массив
+             resultArray[i, k] = tepmSortedArray[k];
+            
+        }
+       
         Console.WriteLine($"Строка {i}");
         PrintArrayInt(tepmArray);
         Console.WriteLine($"Отсортированная строка {i}");

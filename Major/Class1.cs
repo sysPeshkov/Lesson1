@@ -84,6 +84,22 @@ public class Class1
             return resultArray;
         }
 
+        public static void MaxNumberAndIndexInArray(int[] array, out int maxVaue, out int maxIndexValue)
+        {
+                int length = array.Length;
+                maxVaue = array[0];
+                maxIndexValue = 0;
+          
+            for (int i = 0; i < length; i++)
+            {
+                if (array[i] > maxVaue)
+                {
+                    maxVaue = array[i];
+                    maxIndexValue = i;
+                }
+            }
+        }
+
         public static void FindNumberInArray(int[,] array, int number)
         {
             int finded = 0;
