@@ -67,12 +67,12 @@ public class Class1
             return resultArray;
         }
 
-         public static int[,] Copy2DArray(int[,] array)
+        public static int[,] Copy2DArray(int[,] array)
         {
-                int numberRows = array.GetLength(0);
-                 int numberColumns = array.GetLength(1);
+            int numberRows = array.GetLength(0);
+            int numberColumns = array.GetLength(1);
             int[,] resultArray = new int[numberRows, numberColumns];
-          
+
             for (int i = 0; i < resultArray.GetLength(0); i++)
             {
                 for (int j = 0; j < resultArray.GetLength(1); j++)
@@ -86,10 +86,10 @@ public class Class1
 
         public static void MaxNumberAndIndexInArray(int[] array, out int maxVaue, out int maxIndexValue)
         {
-                int length = array.Length;
-                maxVaue = array[0];
-                maxIndexValue = 0;
-          
+            int length = array.Length;
+            maxVaue = array[0];
+            maxIndexValue = 0;
+
             for (int i = 0; i < length; i++)
             {
                 if (array[i] > maxVaue)
@@ -160,6 +160,26 @@ public class Class1
         {
             for (int i = 0; i < array.Length; i++)
                 Console.Write($"{array[i]} ");
+        }
+
+    
+        public static void FindNumberInArray(int number, int[] array)
+        {
+            bool finded = false;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == number)
+                {
+                    finded = true;
+
+                    break;
+                }
+            }
+            if (finded = false)
+            {
+                Console.WriteLine("Нет");
+            }
+            else { Console.WriteLine("Да"); }
         }
     }
 }
