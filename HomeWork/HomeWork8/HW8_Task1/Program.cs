@@ -13,43 +13,80 @@
 using static Major.Class1.Helper;
 Console.Clear();
 
-// int m = InputNumber("Введите количество строк");
-// int n = InputNumber("Введите количество столбцов");
-// int min = InputNumber("Введите минимальное значение");
-// int max = InputNumber("Введите максимальное");
+int m = InputNumber("Введите количество строк");
+int n = InputNumber("Введите количество столбцов");
+int min = InputNumber("Введите минимальное значение");
+int max = InputNumber("Введите максимальное");
 
-// int[,] array = Generate2DArray(m, n, min, max);
-// Console.WriteLine("Вы задали массив:");
-// Print2DArray(array);
+int[,] array = Generate2DArray(m, n, min, max);
+Console.WriteLine("Вы задали массив:");
+Print2DArray(array);
 
-int[] arr = { 8, 2, 5, 6, 2, 1 };
-PrintArrayInt(SortNumberInArray(arr));
+int[,] sortedArray = SortNumberIn2DArrayOnRows(array);
+Console.WriteLine("Отсортированный массив:");
+Print2DArray(sortedArray);
+
 
 int[] SortNumberInArray(int[] array)
 {
 
     int length = array.Length;
-    int min = array[0];
     int tmp = 0;
     int[] resultArray = new int[length];
     for (int i = 0; i < length; i++)
     {
         resultArray[i] = array[i];
     }
-    for (int i = 1; i < length - 1; i++)
+    //Сортировка
+    //берем каждый элемент, начиная с первого до предпоследнего
+    for (int i = 0; i < length - 1; i++)
     {
-        if (resultArray[i] < min)
+        //начиная со следующего после текущего начинаем проверять какой элемент больше
+        for (int j = i + 1; j < length; j++)
         {
-            tmp = resultArray[i - 1];
-            resultArray[i - 1] = resultArray[i];
-            resultArray[i] = tmp;
+            if (resultArray[i] < resultArray[j])
+            {
+                tmp = resultArray[i];
+                resultArray[i] = resultArray[j];
+                resultArray[j] = tmp;
+            }
         }
     }
     return resultArray;
-
 }
 
+int[,] SortNumberIn2DArrayOnRows(int[,] array)
+{
+    int[,] resultArray = Copy2DArray(array);
+    int numberRows = array.GetLength(0);
+    int numberColumns = array.GetLength(1);
+    //Разбираем каждую строку на отдельный массив, чтобы по отдельности отсортировать
+    int[] tepmArray = new int[resultArray.GetLength(1)];
+    //Отсортированная строка
+    int[] tepmSortedArray = new int[resultArray.GetLength(1)];
 
+    for (int i = 0; i < numberRows; i++)
+    {
+        //начиная со следующего после текущего начинаем проверять какой элемент больше
+        for (int j = 0; j < numberColumns; j++)
+        {
+            //Получаем строку в отдельном массиве
+            tepmArray[j] = array[i, j];
+            //Сортируем получившийся массив
+            
+            tepmSortedArray = SortNumberInArray(tepmArray);
+            //Записываем отсортированную строку в массив
+            resultArray[i, j] = tepmSortedArray[j];
+        }
+        Console.WriteLine($"Строка {i}");
+        PrintArrayInt(tepmArray);
+        Console.WriteLine($"Отсортированная строка {i}");
+        PrintArrayInt(tepmSortedArray);
+        Console.WriteLine();
+
+    }
+    return resultArray;
+}
 
 
 

@@ -67,6 +67,23 @@ public class Class1
             return resultArray;
         }
 
+         public static int[,] Copy2DArray(int[,] array)
+        {
+                int numberRows = array.GetLength(0);
+                 int numberColumns = array.GetLength(1);
+            int[,] resultArray = new int[numberRows, numberColumns];
+          
+            for (int i = 0; i < resultArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < resultArray.GetLength(1); j++)
+                {
+                    resultArray[i, j] = array[i, j];
+                }
+
+            }
+            return resultArray;
+        }
+
         public static void FindNumberInArray(int[,] array, int number)
         {
             int finded = 0;
