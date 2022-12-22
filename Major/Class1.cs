@@ -162,24 +162,30 @@ public class Class1
                 Console.Write($"{array[i]} ");
         }
 
-    
-        public static void FindNumberInArray(int number, int[] array)
+
+        public static bool FindNumberIn3DArray(int number, int[,,] array)
         {
             bool finded = false;
-            for (int i = 0; i < array.Length; i++)
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+            int high = array.GetLength(2);
+            for (int i = 0; i < rows; i++)
             {
-                if (array[i] == number)
+                for (int j = 0; j < columns; j++)
                 {
-                    finded = true;
+                    for (int k = 0; k < high; k++)
+                    {
+                        if (array[i, j, k] == number)
+                        {
+                            finded = true;
 
-                    break;
+                            break;
+                        }
+                    }
                 }
+
             }
-            if (finded = false)
-            {
-                Console.WriteLine("Нет");
-            }
-            else { Console.WriteLine("Да"); }
+            return finded;
         }
     }
 }
