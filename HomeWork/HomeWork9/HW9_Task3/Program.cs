@@ -6,6 +6,26 @@
 using static Major.Class1.Helper;
 Console.Clear();
 
-int rows = InputNumber("Введите количество строк");
-int columns = InputNumber("Введите количество столбцов");
-int high = InputNumber("Введите размерность 3-го измерения");
+int m = InputNumber("Введите M");
+int n = InputNumber("Введите N");
+
+if (n <= 0 || m <= 0)
+{
+    Console.WriteLine("Введите положительное целое число больше нуля");
+    n = 2;
+    m = 1;
+}
+
+Console.WriteLine(" ");
+
+Console.WriteLine(GetAkerman(m, n));
+int GetAkerman(int n, int m)
+{
+    if (n == 0)
+        return m + 1;
+    else
+      if ((n != 0) && (m == 0))
+        return GetAkerman(n - 1, 1);
+    else
+        return GetAkerman(n - 1, GetAkerman(n, m - 1));
+}
